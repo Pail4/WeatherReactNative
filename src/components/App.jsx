@@ -1,15 +1,14 @@
 import '../styles/styles';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {SearchForm} from './search_form/SearchForm';
 import {Weather} from './content_blocks/weather/Weather';
 import {Locations, LikedLocation} from './content_blocks/locations/Locations';
 
-import {defaultWeather, localStorage, weatherNow} from './storage';
+import {defaultWeather} from './storage';
 import {getWeather} from './API';
 import {getParsedWeather, getForecastList} from './helpers';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 import {styles} from '../styles/styles';
 
 function App() {
@@ -20,19 +19,13 @@ function App() {
   //   weatherNow.get(createCity).then(value => setStorage(value));
   // });
 
-  // useEffect(function saveStorage() {
-  //   try {
-  //     const _storage = {};
-  //     Object.assign(_storage, storage);
-  //     _storage.likedCities = _storage.likedCities.map(city => {
-  //       return city.props.value;
-  //     });
-  //     const data = JSON.stringify(_storage);
-  //     AsyncStorage.setItem('myStorage', data);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // });
+  useEffect(function saveStorage() {
+    getWeather('Пермь', 'weatherNow').then(newWeather => {
+      const newWeatherNow = getParsedWeather(newWeather, 'Пермь');
+      console.log(newWeatherNow);
+      setStorage({...defaultWeather, ...newWeatherNow});
+    });
+  }, []);
 
   async function setWeather(cityName) {
     const _newWeatherNow = await getWeather(cityName, 'weatherNow');
@@ -102,7 +95,7 @@ function App() {
     <View style={styles.wrapper} className="wrapper">
       <SearchForm onSubmit={setWeather} />
 
-      <View style={styles.blocks} className="blocks">
+      <View style={styles.blocks}>
         <Weather
           params={storage}
           blockList={forecast}

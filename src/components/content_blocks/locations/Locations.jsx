@@ -1,6 +1,7 @@
 import React from 'react';
-import {Button, TextInput, Text, View} from 'react-native';
-import {styles} from '../../../styles/styles';
+import {Button, TextInput, View} from 'react-native';
+import {ButtonColor, styles} from '../../../styles/styles';
+import {IText} from '../../IText/IText';
 
 export function Locations(props) {
   const {likedCities} = props;
@@ -8,7 +9,7 @@ export function Locations(props) {
   return (
     <View style={styles.locations}>
       <View style={styles.locations__block_name}>
-        <Text>Added locations:</Text>
+        <IText>Added locations:</IText>
       </View>
       <View style={styles.locations__locations_list}>
         <View type="none" className="locations-ul">
@@ -41,6 +42,8 @@ export function LikedLocation(props) {
       />
       <Button
         style={styles.locations__locations_list_li__delete_location}
+        color={ButtonColor}
+        title="delete"
         onPress={deleteCity}
       />
     </View>

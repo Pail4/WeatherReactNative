@@ -1,8 +1,9 @@
 import React from 'react';
 
 import {WeatherImg} from './elements/elements';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {styles} from '../../../../styles/styles';
+import {IText} from '../../../IText/IText';
 
 export function TabForecast(props) {
   const {isActive, cityName, blockList} = props;
@@ -20,7 +21,7 @@ export function TabForecast(props) {
         <View
           style={styles.tab_details__location_name}
           className="location-name">
-          <Text>{cityName || 'oaoaoa'}</Text>
+          <IText>{cityName || 'oaoaoa'}</IText>
         </View>
         <View
           style={styles.tab_forecast__time_block}
@@ -40,28 +41,28 @@ export function TimeBlock(props) {
     <View style={styles.tab_forecast__time_block}>
       <View style={styles.tab_forecast__time_block_top}>
         <View style={styles.date}>
-          <Text>{date}</Text>
+          <IText>{date}</IText>
         </View>
         <View style={styles.tab_forecast__time}>
-          <Text>{time}</Text>
+          <IText>{time}</IText>
         </View>
       </View>
       <View style={styles.tab_forecast__time_block_bot}>
         <View style={styles.params}>
           <View type="none">
-            <Text>
-              <Text>Temperature: </Text>
-              <Text style={styles.tab_now__temperature}>{temperature}</Text>
-            </Text>
-            <Text>
-              <Text>Feels like: </Text>
-              <Text style={styles.feel_like}>{feelsLike}</Text>
-            </Text>
+            <IText>
+              <IText>Temperature: </IText>
+              <IText style={styles.tab_now__temperature}>{temperature}</IText>
+            </IText>
+            <IText>
+              <IText>Feels like: </IText>
+              <IText style={styles.feel_like}>{feelsLike}</IText>
+            </IText>
           </View>
         </View>
         <View style={styles.tab_forecast__time_block_weather}>
           <View style={styles.tab_forecast__time}>
-            <Text>{weather}</Text>
+            <IText>{weather}</IText>
           </View>
           <WeatherImg src={weatherIcon} alt={weather} />
         </View>

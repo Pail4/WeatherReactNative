@@ -4,6 +4,14 @@ export const styles = StyleSheet.create({
   html: {
     height: '100%',
   },
+  text: {
+    fontFamily: '"Roboto", sans-serif',
+    fontSize: 24,
+    fontWeight: 'normal',
+    fontStyle: 'normal',
+    lineHeight: 28,
+    color: 'black',
+  },
   body: {
     backgroundColor: '#666',
     fontFamily: '"Roboto", sans-serif',
@@ -22,16 +30,25 @@ export const styles = StyleSheet.create({
     height: 457,
   },
   wrapper: {
-    display: 'flex',
-    flexDirection: 'column',
-    borderBottomColor: '#000',
-    borderBottomWidth: 1,
+    // display: 'flex',
+    // flexDirection: 'column',
+    // borderBottomColor: '#000',
+    // borderBottomWidth: 1,
     width: '100%',
     height: '100%',
-    maxHeight: 100,
+  },
+  searchWrapper: {
+    display: 'flex',
+    width: '100%',
+    flexDirection: 'row',
+  },
+  searchButton: {
+    flexGrow: 1,
+    backgroundColor: '#333',
+    color: 'black',
   },
   search__search_input: {
-    width: '100%',
+    flexGrow: 2,
     height: 45,
     paddingTop: 11,
     paddingRight: 0,
@@ -51,7 +68,8 @@ export const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    width: '50%',
+    width: '100%',
+    height: '35%',
   },
   tab: {
     height: '100%',
@@ -68,8 +86,6 @@ export const styles = StyleSheet.create({
   },
   tab_now__temperature: {
     marginTop: 20,
-    marginRight: 20,
-    marginBottom: 20,
     marginLeft: 20,
     height: 95,
     fontSize: 70,
@@ -79,15 +95,11 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   tab_now__weather_img: {
-    objectFit: 'cover',
-    // filter: 'drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.7))',
+    width: 150,
+    height: 150,
   },
   tab_now__bottom: {
-    marginTop: 'auto',
-    minHeight: 50,
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'flex-end',
+    alignItems: 'center',
   },
   tab_now__bottom__location_name: {
     marginTop: 0,
@@ -116,6 +128,7 @@ export const styles = StyleSheet.create({
   // },
   tab_details: {
     textAlign: 'left',
+    height: '19%',
   },
   tab_details_active: {
     display: 'flex',
@@ -182,24 +195,11 @@ export const styles = StyleSheet.create({
     // filter: 'drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.7))',
   },
   tab_nav: {
-    display: 'flex',
-    // justifySelf: 'flex-end',
-    justifyContent: 'flex-end',
-  },
-  tab_nav_button: {
-    borderTopColor: '#000',
-    borderTopWidth: 1,
     width: '100%',
-    backgroundColor: '#fff',
-    verticalAlign: 'middle',
-    fontSize: 18,
-    lineHeight: 21,
-    // textDecoration: 'none',
-    textDecorationLine: 'none',
-    color: '#000',
-    height: 41,
-    borderRightColor: '#000',
-    borderRightWidth: 1,
+    display: 'flex',
+    flexDirection: 'row',
+    flex: 0,
+    justifyContent: 'space-evenly',
   },
   tab_nav_button_last_child: {
     borderRightWidth: 0,
@@ -276,3 +276,5 @@ export const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.5)',
   },
 });
+
+export const ButtonColor = '#333';

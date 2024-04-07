@@ -1,8 +1,9 @@
 /* eslint-disable eqeqeq */
 /* esTextnt-disable eqeqeq */
 import React from 'react';
-import {Image, Text, View} from 'react-native';
+import {Image, View} from 'react-native';
 import {styles} from '../../../../../styles/styles';
+import {IText} from '../../../../IText/IText';
 
 export function ParamsList(props) {
   const {show, ViewClass} = props;
@@ -10,38 +11,38 @@ export function ParamsList(props) {
   return (
     <View style={ViewClass} type="none">
       {show?.temperature != undefined && (
-        <Text>
-          <Text>Temperature: </Text>
-          <Text style={styles.tab_now__temperature} className="temp grad">
-            {show.temperature}
-          </Text>
-        </Text>
+        <IText>
+          <IText>Temperature: </IText>
+          <IText style={styles.tab_now__temperature} className="temp grad">
+            {show.temperature} °
+          </IText>
+        </IText>
       )}
       {show?.feelsLike != undefined && (
-        <Text>
-          <Text>Feels like:</Text>
-          <Text className="feels-Textke grad">{show.feelsLike}</Text>
-        </Text>
+        <IText>
+          <IText>Feels like:</IText>
+          <IText className="feels-Textke grad">{show.feelsLike} °</IText>
+        </IText>
       )}
       {show?.weather != undefined && (
-        <Text>
-          <Text>Weather: </Text>
-          <Text className="cur-weather" />
-          <Text>{show.weather}</Text>
-        </Text>
+        <IText>
+          <IText>Weather: </IText>
+          <IText className="cur-weather" />
+          <IText>{show.weather}</IText>
+        </IText>
       )}
       {show?.sunrise != undefined && (
-        <Text>
-          <Text>Sunrise: </Text>
-          <Text className="sunrise" />
-          <Text>{show.sunrise}</Text>
-        </Text>
+        <IText>
+          <IText>Sunrise: </IText>
+          <IText className="sunrise" />
+          <IText>{show.sunrise}</IText>
+        </IText>
       )}
       {show?.sunset != undefined && (
-        <Text>
-          <Text>Sunset: </Text>
-          <Text className="sunset">{show.sunset}</Text>
-        </Text>
+        <IText>
+          <IText>Sunset: </IText>
+          <IText className="sunset">{show.sunset}</IText>
+        </IText>
       )}
     </View>
   );
@@ -50,25 +51,26 @@ export function ParamsList(props) {
 export function WeatherImg(props) {
   const {src, alt} = props;
   return (
-    <Image
-      style={styles.tab_now__weather_img}
-      // className="weather-img"
-      src={src}
-      alt={alt}
-    />
+    !!src && (
+      <Image
+        style={styles.tab_now__weather_img}
+        source={{uri: src}}
+        alt={alt}
+      />
+    )
   );
 }
 
 export function LocationName(props) {
   return (
-    <Text
+    <IText
       style={styles.tab_now__bottom__location_name}
       className="location-name">
       {props.value}
-    </Text>
+    </IText>
   );
 }
 
 export function Temp(props) {
-  return <Text className="temp grad">{props.value}</Text>;
+  return <IText className="temp grad">{props.value} °</IText>;
 }

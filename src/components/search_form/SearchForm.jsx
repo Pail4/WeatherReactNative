@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Button, TextInput, View} from 'react-native';
-import {styles} from '../../styles/styles';
+import {ButtonColor, styles} from '../../styles/styles';
 
 export function SearchForm(props) {
   const [inputValue, setInputValue] = useState('');
@@ -19,13 +19,22 @@ export function SearchForm(props) {
   };
 
   return (
-    <View action="" onSubmit={handleSubmit} className="search">
+    <View
+      action=""
+      style={styles.searchWrapper}
+      onSubmit={handleSubmit}
+      className="search">
       <SearchInput
         value={inputValue}
         onChangeText={setInputValue}
         showError={typeError}
       />
-      <Button title="Submit" onPress={handleSubmit} />
+      <Button
+        style={styles}
+        color={ButtonColor}
+        title="Submit"
+        onPress={handleSubmit}
+      />
     </View>
   );
 }

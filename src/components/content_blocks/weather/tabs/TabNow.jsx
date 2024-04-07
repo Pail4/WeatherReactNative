@@ -1,8 +1,9 @@
 import React from 'react';
 
 import {WeatherImg, LocationName, Temp} from './elements/elements';
-import {StyleSheet, TextInput, View} from 'react-native';
+import {Image, TouchableOpacity, View} from 'react-native';
 import {styles} from '../../../../styles/styles';
+import {IText} from '../../../IText/IText';
 
 export function TabNow(props) {
   const {isActive, params, onLikeClick} = props;
@@ -19,19 +20,24 @@ export function TabNow(props) {
         </View>
         <View style={styles.tab_now__bottom} className="bottom">
           <LocationName value={cityName} />
-          <TextInput
+          <TouchableOpacity
             type="button"
             name="like"
-            style={StyleSheet.compose(
-              styles.tab_now__bottom__like_btn,
-              styles.tab_now_active,
-            )}
-            className={'like-btn' + ' active'.repeat(isLiked)}
+            // className={'like-btn' + ' active'.repeat(isLiked)}
             id="likeBtn"
-            onPressIn={() => {
+            onPress={() => {
               onLikeClick(cityName);
-            }}
-          />
+            }}>
+            <Image
+              style={{
+                width: 40,
+                height: 40,
+              }}
+              source={require('../../../../img/like_active.svg')}
+              alt="img"
+            />
+            <IText>HI</IText>
+          </TouchableOpacity>
         </View>
       </View>
     )
