@@ -1,0 +1,9 @@
+{
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "editor.formatOnSave": true,
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}
