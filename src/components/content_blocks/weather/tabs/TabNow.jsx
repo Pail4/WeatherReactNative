@@ -9,18 +9,28 @@ export function TabNow(props) {
   const {isActive, params, onLikeClick} = props;
   const {cityName, temperature, weatherIcon, weather, isLiked} = params;
 
+  const likeButtonImage = require('../../../../img/like.png');
+  const likeButtonActiveImage = require('../../../../img/like_active.png');
+
+  console.log(isLiked);
+
   return (
     isActive && (
       <View style={styles.tab_now} id="tab01">
         <View style={styles.tab_now__temperature} className="temperature">
-          <Temp value={temperature} />
+          <Temp
+            style={{fontSize: 35, fontWeight: 'bold', paddingTop: 10}}
+            value={temperature}
+          />
         </View>
         <View style={styles.tab_now__img_wrap} className="img-wrap">
           <WeatherImg src={weatherIcon} alt={weather} />
         </View>
         <View style={styles.tab_now__bottom} className="bottom">
+          <IText style={{width: 30}} />
           <LocationName value={cityName} />
           <TouchableOpacity
+            style={styles.tab_now_likeBtn}
             type="button"
             name="like"
             // className={'like-btn' + ' active'.repeat(isLiked)}
@@ -29,14 +39,10 @@ export function TabNow(props) {
               onLikeClick(cityName);
             }}>
             <Image
-              style={{
-                width: 40,
-                height: 40,
-              }}
-              source={require('../../../../img/like_active.svg')}
-              alt="img"
+              style={styles.tab_now_likeBtnImg}
+              source={isLiked ? likeButtonActiveImage : likeButtonImage}
+              alt="like"
             />
-            <IText>HI</IText>
           </TouchableOpacity>
         </View>
       </View>

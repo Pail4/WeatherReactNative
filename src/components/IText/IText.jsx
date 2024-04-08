@@ -1,7 +1,7 @@
-import {Text} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
 import {styles} from '../../styles/styles';
 
-export const IText = ({children}) => {
+export const IText = ({children, style}) => {
   // eslint-disable-next-line react/react-in-jsx-scope
-  return <Text style={styles.text}>{children}</Text>;
+  return <Text style={StyleSheet.compose(styles.text, style)}>{children}</Text>;
 };

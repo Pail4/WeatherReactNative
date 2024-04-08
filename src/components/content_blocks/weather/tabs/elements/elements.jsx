@@ -72,5 +72,5 @@ export function LocationName(props) {
 }
 
 export function Temp(props) {
-  return <IText className="temp grad">{props.value} °</IText>;
+  return <IText style={props.style}>{props.value} °</IText>;
 }

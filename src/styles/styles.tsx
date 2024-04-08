@@ -81,6 +81,13 @@ export const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
   },
+  tab_now_likeBtn: {
+    // marginRight: 20,
+  },
+  tab_now_likeBtnImg: {
+    width: 30,
+    height: 30,
+  },
   tab_now_active: {
     display: 'flex',
   },
@@ -99,33 +106,11 @@ export const styles = StyleSheet.create({
     height: 150,
   },
   tab_now__bottom: {
-    alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
   },
-  tab_now__bottom__location_name: {
-    marginTop: 0,
-    marginRight: 0,
-    marginBottom: 17,
-    marginLeft: 12,
-  },
-  tab_now__bottom__like_btn: {
-    padding: 0,
-    marginTop: 0,
-    marginRight: 26,
-    marginBottom: 23,
-    marginLeft: 0,
-    width: 25,
-    height: 25,
-    // background: 'url(../img/like.svg) no-repeat center',
-  },
-  // tab_now__bottom__like_btn_hover: {
-  //   background: 'url(../img/like_active.svg) no-repeat center',
-  // },
-  // tab_now__bottom__like_btn_active: {
-  //   background: 'url(../img/like_active.svg) no-repeat center',
-  // },
-  // tab_now__bottom__like_btn_active_hover: {
-  //   background: 'url(../img/like.svg) no-repeat center',
-  // },
+  tab_now__bottom__location_name: {},
   tab_details: {
     textAlign: 'left',
     height: '19%',
