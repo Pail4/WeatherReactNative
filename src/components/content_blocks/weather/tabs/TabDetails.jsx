@@ -9,19 +9,11 @@ export function TabDetails(props) {
 
   return (
     isActive && (
-      <View
-        style={StyleSheet.compose(
-          styles.tab,
-          styles.tab_details,
-          styles.tab_details_active,
-        )}
-        // className="tab tab-details active"
-        id="tab02">
+      <View style={styles.tab_details}>
         <LocationName value={params.cityName} />
         <ParamsList
           show={params}
-          ViewCLass={styles.tab_details__details_list}
-          // ulClass="details-list"
+          ViewClass={styles.tab_details__details_list}
         />
       </View>
     )

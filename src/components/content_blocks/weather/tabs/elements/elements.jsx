@@ -1,7 +1,7 @@
 /* eslint-disable eqeqeq */
 /* esTextnt-disable eqeqeq */
 import React from 'react';
-import {Image, View} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 import {styles} from '../../../../../styles/styles';
 import {IText} from '../../../../IText/IText';
 
@@ -13,9 +13,7 @@ export function ParamsList(props) {
       {show?.temperature != undefined && (
         <IText>
           <IText>Temperature: </IText>
-          <IText style={styles.tab_now__temperature} className="temp grad">
-            {show.temperature} °
-          </IText>
+          <IText className="temp grad">{show.temperature} °</IText>
         </IText>
       )}
       {show?.feelsLike != undefined && (
@@ -49,11 +47,11 @@ export function ParamsList(props) {
 }
 
 export function WeatherImg(props) {
-  const {src, alt} = props;
+  const {src, alt, style} = props;
   return (
     !!src && (
       <Image
-        style={styles.tab_now__weather_img}
+        style={StyleSheet.compose(styles.tab_now__weather_img, style)}
         source={{uri: src}}
         alt={alt}
       />

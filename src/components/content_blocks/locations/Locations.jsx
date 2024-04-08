@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, TextInput, View} from 'react-native';
+import {Button, TextInput, TouchableOpacity, View} from 'react-native';
 import {ButtonColor, styles} from '../../../styles/styles';
 import {IText} from '../../IText/IText';
 
@@ -32,20 +32,14 @@ export function LikedLocation(props) {
   };
 
   return (
-    <View>
-      <TextInput
-        type="button"
-        style={styles.locations__locations_list_li__liked_location}
-        className="liked-location"
-        value={value}
-        onClick={handleCityClick}
-      />
+    <TouchableOpacity onPress={handleCityClick} style={styles.likedCityRow}>
+      <IText>{value}</IText>
       <Button
         style={styles.locations__locations_list_li__delete_location}
         color={ButtonColor}
         title="delete"
         onPress={deleteCity}
       />
-    </View>
+    </TouchableOpacity>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {WeatherImg} from './elements/elements';
-import {StyleSheet, View} from 'react-native';
+import {ScrollView, StyleSheet, View} from 'react-native';
 import {styles} from '../../../../styles/styles';
 import {IText} from '../../../IText/IText';
 
@@ -10,24 +10,11 @@ export function TabForecast(props) {
 
   return (
     isActive && (
-      <View
-        style={StyleSheet.compose(
-          styles.tab,
-          styles.tab_forecast,
-          styles.tab_forecast_active,
-        )}
-        className="tab tab-forecast active"
-        id="tab03">
-        <View
-          style={styles.tab_details__location_name}
-          className="location-name">
+      <View style={styles.tab_forecast}>
+        <View style={styles.tab_details__location_name}>
           <IText>{cityName || 'oaoaoa'}</IText>
         </View>
-        <View
-          style={styles.tab_forecast__time_block}
-          className="time-block-Textst">
-          {blockList}
-        </View>
+        <ScrollView style={styles.tab_forecast_list}>{blockList}</ScrollView>
       </View>
     )
   );
@@ -40,10 +27,10 @@ export function TimeBlock(props) {
   return (
     <View style={styles.tab_forecast__time_block}>
       <View style={styles.tab_forecast__time_block_top}>
-        <View style={styles.date}>
+        <View>
           <IText>{date}</IText>
         </View>
-        <View style={styles.tab_forecast__time}>
+        <View>
           <IText>{time}</IText>
         </View>
       </View>
@@ -52,7 +39,7 @@ export function TimeBlock(props) {
           <View type="none">
             <IText>
               <IText>Temperature: </IText>
-              <IText style={styles.tab_now__temperature}>{temperature}</IText>
+              <IText>{temperature}</IText>
             </IText>
             <IText>
               <IText>Feels like: </IText>
@@ -64,7 +51,11 @@ export function TimeBlock(props) {
           <View style={styles.tab_forecast__time}>
             <IText>{weather}</IText>
           </View>
-          <WeatherImg src={weatherIcon} alt={weather} />
+          <WeatherImg
+            src={weatherIcon}
+            alt={weather}
+            style={{width: 40, height: 40, padding: 0, margin: 0}}
+          />
         </View>
       </View>
     </View>
