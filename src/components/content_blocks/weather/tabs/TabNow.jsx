@@ -12,8 +12,6 @@ export function TabNow(props) {
   const likeButtonImage = require('../../../../img/like.png');
   const likeButtonActiveImage = require('../../../../img/like_active.png');
 
-  console.log(isLiked);
-
   return (
     isActive && (
       <View style={styles.tab_now} id="tab01">

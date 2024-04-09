@@ -17,8 +17,7 @@ function App() {
   const [forecast, setForecast] = useState([]);
 
   useEffect(function initStorage() {
-    console.log('AFTER STORAGE');
-    AsyncStorage.getItem('myStorage', res => console.log('res', res))
+    AsyncStorage.getItem('myStorage')
       .then(stor => {
         const data = {...JSON.parse(stor)};
         data.likedCities = data.likedCities.map(cityName =>
@@ -47,7 +46,6 @@ function App() {
   async function setWeather(cityName) {
     const _newWeatherNow = await getWeather(cityName, 'weatherNow');
     const newWeatherNow = getParsedWeather(_newWeatherNow, cityName);
-    console.log(newWeatherNow);
 
     setStorage(_storage => {
       newWeatherNow.likedCities = _storage.likedCities;
